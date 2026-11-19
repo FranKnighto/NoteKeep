@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoteKeep | My Currency Notes Collection</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/NK.png">
+</head>
+
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">MY CURRENCY NOTES COLLECTION</p>
+        <div class="brand-icon">NK</div>
+        <h1>NoteKeep</h1>
+        <p class="subtitle">Keep track of the currency notes I have owned, my wishlist and love! ❤️</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel add-panel">
+        <h2>Add a banknote</h2>
+        <p class="section-description">
+          Enter the details of a currency note to add in to your collection.
+        </p>
+
+        <form id="noteForm">
+          <div class="form-group">
+            <label for="noteName">Banknote Name</label>
+            <input
+              type="text"
+              id="noteName"
+              placeholder="e.g. RM10"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="noteYear">Year</label>
+            <input
+              type="number"
+              id="noteYear"
+              placeholder="e.g. 1982"
+              min="1000"
+              max="9999"
+              step="1"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="noteCountry">Country</label>
+            <input
+              type="text"
+              id="noteCountry"
+              placeholder="e.g. Malaysia"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="collectionStatus">Collection Status</label>
+            <select id="collectionStatus" required>
+              <option value="In Collection">In Collection</option>
+              <option value="Wishlist">Wishlist</option>
+            </select>
+          </div>
+<!----------------STAR RATING-------          
+          <div class="form-group">
+            <label for="noteRating">Rating</label>
+          
+            <select id="noteRating" required>
+              <option value="1">1 - ★☆☆☆☆</option>
+              <option value="2">2 - ★★☆☆☆</option>
+              <option value="3" selected>3 - ★★★☆☆</option>
+              <option value="4">4 - ★★★★☆</option>
+              <option value="5">5 - ★★★★★</option>
+            </select>
+          
+            <small>Rate this banknote.</small>
+          </div>-->
+
+
+          <div class="form-group">
+            <label for="noteImage">Image filename</label>
+            <input
+              type="text"
+              id="noteImage"
+              placeholder="e.g. RM50_1994.jpg"
+              required>
+            <small>Enter the image filename (incl. file extension).</small>
+          </div>
+
+          <button type="submit" class="add-button">
+            + Add Banknote
+          </button>
+
+        </form>
+      </section>
+
+      <section class="collection-section">
+        <div class="collection-header">
+          <div>
+            <p class="eyebrow">LIBRARY</p>
+            <h2>My Collection</h2>
+          </div>
+
+          <div class="count-box">
+            <span id="collection-count">0</span>
+            <small>Total Note(s)</small>
+          </div>
+        </div>
+
+        <div class="panel filter-panel">
+          <div class="filter-heading">
+            <h3>Find a banknote</h3>
+            <span id="display-count">0 notes displayed</span>
+          </div>
+
+          <div class="filter-grid">
+            <div class="form-group">
+              <label for="searchName">Search name</label>
+              <input
+                type="text"
+                id="searchName"
+                placeholder="Search banknote">
+            </div>
+
+            <div class="form-group">
+              <label for="filterYear">Year</label>
+              <input
+                type="number"
+                id="filterYear"
+                placeholder="e.g. 1982"
+                min="1000"
+                max="9999"
+                step="1">
+            </div>
+
+            <div class="form-group">
+              <label for="filterCountry">Country</label>
+              <input
+                type="text"
+                id="filterCountry"
+                placeholder="Search country...">
+            </div>
+
+            <div class="form-group">
+              <label for="filterStatus">Status</label>
+              <select id="filterStatus">
+                <option value="">All statuses</option>
+                <option value="In Collection">In Collection</option>
+                <option value="Wishlist">Wishlist</option>
+              </select>
+            </div>
+<!-----STAR RATING---------------------------
+            <div class="form-group">
+              <label for="filterRating">Rating</label>
+            
+              <select id="filterRating">
+                <option value="">Select rating</option>
+                <option value="1">1 - ★☆☆☆☆</option>
+                <option value="2">2 - ★★☆☆☆</option>
+                <option value="3">3 - ★★★☆☆</option>
+                <option value="4">4 - ★★★★☆</option>
+                <option value="5">5 - ★★★★★</option>
+              </select>
+            </div>----->
+
+            <div class="form-group sort-group">
+              <label for="sortNotes">Sort by</label>
+              <select id="sortNotes">
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+                <option value="year-asc">Year: Oldest first</option>
+                <option value="year-desc">Year: Newest first</option>
+                <option value="country-asc">Country: A to Z</option>
+                <option value="country-desc">Country: Z to A</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Banknote cards will be inserted here by JS -->
+        <ol id="note-list" class="notes-grid"></ol>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>NoteKeep &copy; 2026 Personal Currency Collection Manager. This website is solely for education purpose only. All rights to the original content, images, or music belong to their respective copyright owners. </p>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
